@@ -10,3 +10,7 @@
     cursor: pointer;
 }
 
+.fas.fa-cart-shopping {
+    font-size: 15px;
+    color: grey;
+}
