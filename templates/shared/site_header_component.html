@@ -37,10 +37,10 @@
                     </div>
                 </div> -->
 
-                <div class="col-sm-4" style="text-align: left; padding-left: 15px;">
+                <div class="col-sm-4" style="text-align: left; padding-right: 155px">
                     <div class="logo">
                         <a href="{% url 'home_page' %}">
-                            {% thumbnail site_setting.site_logo "120x120" quality=95 crop='center' as im %}
+                            {% thumbnail site_setting.site_logo "300x300" quality=95 crop='center' as im %}
                                 <img src="{{ im.url }}" class="girl img-responsive" width="" alt="Logo">
                             {% endthumbnail %}
                         </a>
@@ -51,17 +51,15 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             {% if request.user.is_authenticated %}
-                                {#                                {% if request.user.is_superuser %}#}
-                                {#                                    <li><a href="/admin"><i class="fa-user"></i> پنل ادمین</a></li>#}
-                                {#                                {% endif %}#}
                                 {% if request.user.is_superuser %}
-                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa fa-gear"></i> پنل اختصاصی
-                                        ادمین</a>
+                                    <li><a href="/admin"><i class="fa-user"></i> پنل ادمین</a></li>
+                                {% endif %}
+                                {% if request.user.is_superuser %}
+                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa-user"></i> پنل اختصاصی ادمین</a>
                                     </li>
                                 {% endif %}
-                                <li><a href="{% url 'user_basket_page' %}"
-                                       class="{% if request.resolver_match.url_name == 'user_basket_page' %}active{% endif %}"><i
-                                        class="fa fa-cart-shopping"></i>سبد خرید</a></li>
+                                <li><a href="{% url 'user_basket_page' %}"><i class="fa-shopping-cart"></i> سبد خرید</a>
+                                </li>
                                 <li><a href="{% url 'user_panel_dashboard' %}"
                                        class="{% if request.resolver_match.url_name == 'user_panel_dashboard' %}active{% endif %}"><i
                                         class="fa fa-user"></i> پنل کاربری</a></li>
