@@ -36,6 +36,7 @@
         <option value="$MODULE_DIR$/order_module/templates" />
         <option value="$MODULE_DIR$/product_module/templates" />
         <option value="$MODULE_DIR$/admin_panel_module/templates" />
+        <option value="$MODULE_DIR$/search_module/templates" />
       </list>
     </option>
   </component>

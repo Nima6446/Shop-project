@@ -1,0 +1,48 @@
+{% extends 'shared/layout.html' %}
+{% load render_partial %}
+
+{% block title %}
+    جستوجو
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 padding-right">
+                    {% if products %}
+                        <div class="features_items"><!--features_items-->
+                            <h2 class="title text-center">نتایج جستجو</h2>
+                            {% for product in products %}
+                                {% include 'includes/product_item_partial.html' with product=product col_size=4 %}
+                            {% endfor %}
+                            <div class="clearfix"></div>
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li><a href="?query={{ query }}&page={{ page_obj.previous_page_number }}">قبلی</a>
+                                    </li>
+                                {% endif %}
+
+                                {% for pageNumber in paginator.page_range %}
+                                    <li class="{% if page_obj.number == pageNumber %} active {% endif %}">
+                                        <a href="?query={{ query }}&page={{ pageNumber }}">{{ pageNumber }}</a>
+                                    </li>
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                    <li><a href="?query={{ query }}&page={{ page_obj.next_page_number }}">بعدی</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning">
+                            <p>محصولی یافت نشد</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

@@ -51,11 +51,12 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             {% if request.user.is_authenticated %}
-{#                                {% if request.user.is_superuser %}#}
-{#                                    <li><a href="/admin"><i class="fa-user"></i> پنل ادمین</a></li>#}
-{#                                {% endif %}#}
                                 {% if request.user.is_superuser %}
-                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa fa-gear"></i> پنل اختصاصی ادمین</a>
+                                    <li><a href="/admin"><i class="fa fa-gear"></i> پنل ادمین</a></li>
+                                {% endif %}
+                                {% if request.user.is_superuser %}
+                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa fa-gear"></i> پنل اختصاصی
+                                        ادمین</a>
                                     </li>
                                 {% endif %}
                                 <li><a href="{% url 'user_basket_page' %}"
@@ -82,7 +83,9 @@
 
                 <div class="col-sm-3">
                     <div class="search_box pull-left">
-                        <input type="text" placeholder="جستـجو"/>
+                        <form method="get" action="{% url 'search-page' %}">
+                            <input type="text" name="query" placeholder="جستجو" value="{{ query }}">
+                        </form>
                     </div>
                 </div>
 
