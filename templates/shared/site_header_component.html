@@ -39,8 +39,8 @@
 
                 <div class="col-sm-4" style="text-align: left; padding-right: 155px">
                     <div class="logo">
-                        <a href="{% url 'home_page' %}" style="padding-left: 14px">
-                            {% thumbnail site_setting.site_logo "120x120" quality=95 crop='center' as im %}
+                        <a href="{% url 'home_page' %}" style="padding-left: 30px">
+                            {% thumbnail site_setting.site_logo "100x100" quality=95 crop='center' as im %}
                                 <img src="{{ im.url }}" class="girl img-responsive" width="" alt="Logo">
                             {% endthumbnail %}
                         </a>
@@ -54,11 +54,11 @@
                                 {% if request.user.is_superuser %}
                                     <li><a href="/admin"><i class="fa fa-gear"></i> پنل ادمین</a></li>
                                 {% endif %}
-                                {% if request.user.is_superuser %}
-                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa fa-gear"></i> پنل اختصاصی
-                                        ادمین</a>
-                                    </li>
-                                {% endif %}
+{#                                {% if request.user.is_superuser %}#}
+{#                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa fa-gear"></i> پنل اختصاصی#}
+{#                                        ادمین</a>#}
+{#                                    </li>#}
+{#                                {% endif %}#}
                                 <li><a href="{% url 'user_basket_page' %}"
                                        class="{% if request.resolver_match.url_name == 'user_basket_page' %}active{% endif %}"><i
                                         class="fa fa-shopping-cart"></i> سبد خرید </a></li>
@@ -77,7 +77,7 @@
         </div>
     </div><!--/header-middle-->
 
-    <div class="header-bottom"><!--header-bottom-->
+    <div class="header-bottom" style="padding-top: 10px"><!--header-bottom-->
         <div class="container">
             <div class="row">
 
