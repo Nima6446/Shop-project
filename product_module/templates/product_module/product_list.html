@@ -1,10 +1,11 @@
 {% extends 'shared/layout.html' %}
 {% load render_partial %}
-{% block title %}
 {% load polls_extras %}
 
+{% block title %}
+    لیست محصولات
 {% endblock %}
-لیست محصولات
+
 {% block content %}
     <section>
         <div class="container">
@@ -14,7 +15,9 @@
                         <div class="features_items"><!--features_items-->
                             <h2 class="title text-center">محصولات</h2>
                             {% for product in products %}
-                                {% include 'includes/product_item_partial.html' with product=product col_size=4 %}
+{#                                {% if product.is_active%}#}
+                                    {% include 'includes/product_item_partial.html' with product=product col_size=4 %}
+{#                                {% endif %}#}
                             {% endfor %}
                             <div class="clearfix"></div>
                             <ul class="pagination">
@@ -73,7 +76,7 @@
                         </div>
                         <div class="shipping text-center"><!--shipping-->
                             {% for banner in banners %}
-                                <a href="{{ banner.url }}" >
+                                <a href="{{ banner.url }}">
                                     <img src="{{ banner.image.url }}" alt="" style="padding-bottom: 20px ">
                                 </a>
                             {% endfor %}

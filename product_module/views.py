@@ -13,7 +13,7 @@ class ProductListView(ListView):
     template_name = 'product_module/product_list.html'
     model = product
     context_object_name = 'products'
-    ordering = ['price']
+    ordering = ['-price']
     paginate_by = 12
 
     def get_context_data(self, *, object_list=None, **kwargs):

@@ -32,7 +32,7 @@ class HomeView(TemplateView):
             categories_products.append(item)
         context['categories_products'] = categories_products
 
-        most_bought_products = product.objects.filter(orderdetail__order__is_paid=True).annotate(order_count=Sum(
+        most_bought_products = product.objects.filter(orderdetail__order__is_paid=True,is_active=True).annotate(order_count=Sum(
             'orderdetail__count'
         )).order_by('-order_count')[:12]
 

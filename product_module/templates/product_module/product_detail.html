@@ -1,4 +1,5 @@
 {% extends 'shared/layout.html' %}
+{% load thumbnail %}
 {% load render_partial %}
 {% load polls_extras %}
 {% load static %}
@@ -31,7 +32,9 @@
                         <div class="col-sm-5">
                             <div class="view-product">
                                 {% if product.image %}
-                                    <img src="{{ product.image.url }}" alt="" id="main_image">
+                                    {% thumbnail product.image "368x380" crop='center' as im %}
+                                        <img src="{{ im.url }}">
+                                    {% endthumbnail %}
                                 {% else %}
                                     <img src="/static/images/product-details/1.jpg" alt="" id="main_image">
                                 {% endif %}
