@@ -14,11 +14,13 @@
                     {% if products %}
                         <div class="features_items"><!--features_items-->
                             <h2 class="title text-center">محصولات</h2>
-                            {% for product in products %}
+                            <a href="">
+                                {% for product in products %}
 {#                                {% if product.is_active%}#}
                                     {% include 'includes/product_item_partial.html' with product=product col_size=4 %}
 {#                                {% endif %}#}
-                            {% endfor %}
+                                {% endfor %}
+                            </a>
                             <div class="clearfix"></div>
                             <ul class="pagination">
                                 {% if page_obj.has_previous %}
