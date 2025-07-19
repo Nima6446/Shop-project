@@ -3,18 +3,18 @@
 
 
 <div class="col-sm-{{ col_size }}">
-    <div class="product-image-wrapper">
-        <div class="single-products">
-            <div class="productinfo text-center">
+    <div class="product-image-wrapper" >
+        <div class="single-products" style="cursor: default">
+            <div class="productinfo text-center" style="cursor: default">
                 {% if product.image %}
                     {% thumbnail product.image "368x380" crop='center' as im %}
-                        <img src="{{ im.url }}">
+                        <img src="{{ im.url }}" style="cursor: default">
                     {% endthumbnail %}
                 {% else %}
                     <img src="/static/images/shop/product.jpg" alt="">
                 {% endif %}
-                <h2>{{product.price | three_digits_currency}} </h2>
-                <p>{{product.title}}</p>
+                <h2 style="cursor: default">{{product.price | three_digits_currency}} </h2>
+                <p style="cursor: default ">{{product.title}}</p>
                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
             </div>
             <div class="product-overlay">
