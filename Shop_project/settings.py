@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'jalali_date',
     'widget_tweaks',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
