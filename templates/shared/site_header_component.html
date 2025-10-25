@@ -54,11 +54,11 @@
                                 {% if request.user.is_superuser %}
                                     <li><a href="/admin"><i class="fa fa-gear"></i> پنل ادمین</a></li>
                                 {% endif %}
-                                {% if request.user.is_superuser %}
-                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa fa-gear"></i> پنل اختصاصی
-                                        ادمین</a>
-                                    </li>
-                                {% endif %}
+{#                                {% if request.user.is_superuser %}#}
+{#                                    <li><a href="{% url 'admin_dashboard' %}"><i class="fa fa-gear"></i> پنل اختصاصی#}
+{#                                        ادمین</a>#}
+{#                                    </li>#}
+{#                                {% endif %}#}
                                 <li><a href="{% url 'user_basket_page' %}"
                                        class="{% if request.resolver_match.url_name == 'user_basket_page' %}active{% endif %}"><i
                                         class="fa fa-shopping-cart"></i> سبد خرید </a></li>
