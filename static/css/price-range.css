@@ -76,6 +76,8 @@
 }
 .slider .tooltip-inner {
   white-space: nowrap;
+  direction: rtl;
+  unicode-bidi: plaintext;
 }
 .slider-track {
   position: absolute;

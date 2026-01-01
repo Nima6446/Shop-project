@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views import View
+
+from Shop_project import settings
 from account_module.froms import RegisterForm, LoginForm, ForgotPasswordForm, ResetPasswordForm
 from account_module.models import User
 from utils.email_service import send_email
@@ -43,18 +45,17 @@ class RegisterView(View):
 class ActivateAccountView(View):
     def get(self, request, email_active_code):
         user:User = User.objects.filter(email_active_code__iexact=email_active_code).first()
-        if user is not None:
-            if not user.is_active:
-                user.is_active=True
-                user.email_active_code=get_random_string(72)
-                user.save()
-                # todo: show success message to user
-                return redirect(reverse('login_page'))
-            else:
-                # todo: show your account was activated message to user
-                pass
+        if user is None:
+            raise Http404
 
-        raise Http404
+        if not user.is_active:
+            user.is_active = True
+            user.email_active_code = get_random_string(22)
+            user.save()
+            print("ACTIVATE HIT:", email_active_code)
+            print("DB:", settings.DATABASES["default"]["NAME"])
+
+        return redirect("login_page")
 
 
 class LoginView(View):

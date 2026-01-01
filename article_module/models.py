@@ -35,8 +35,8 @@ class Article(models.Model):
     def get_jalali_create_date(self):
         return date2jalali(self.create_date)
 
-    def get_jalali_create_time(self):
-        return self.create_date.strftime('%H:%M')
+    # def get_jalali_create_time(self):
+    #     return self.create_date.strftime('%H:%M')
 
     class Meta:
         verbose_name = 'مقاله'

@@ -19,7 +19,11 @@ from product_module.models import product
 
 def add_product_to_order(request: HttpRequest):
     product_id = int(request.GET.get('product_id'))
-    count = int(request.GET.get('count'))
+    count = request.GET.get('count')
+    try:
+        count=int(count)
+    except (TypeError, ValueError):
+        count = 1
     if count < 1:
         return JsonResponse({
             'status': 'invalid_count',

@@ -29,6 +29,7 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         query = super(ProductListView, self).get_queryset()
+        query = query.filter(is_active=True)
         category_name = self.kwargs.get('cat')
         brand_name = self.kwargs.get('brand')
         request: HttpRequest = self.request

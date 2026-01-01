@@ -13,7 +13,6 @@ from account_module.models import User
 from order_module.models import Order, OrderDetail
 from . import forms
 from .forms import EditProfileModelForm, ChangePasswordForm
-from django.shortcuts import redirect
 
 
 @method_decorator(login_required, name='dispatch')

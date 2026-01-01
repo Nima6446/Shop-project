@@ -901,6 +901,10 @@ h2.title:before{
   padding-left: 0;
 }
 
+#most-bought-carousel .carousel-inner .item{
+      padding-left: 0;
+}
+
 #major-item-carousel .carousel-inner .item {
   padding-left: 0;
 }

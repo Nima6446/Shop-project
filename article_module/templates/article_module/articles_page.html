@@ -24,7 +24,6 @@
                                         {% if article.author is not None %}
                                             <li><i class="fa fa-user"></i> {{ article.author }}</li>
                                         {% endif %}
-                                        <li><i class="fa fa-clock-o"></i>{{ article.get_jalali_create_time }}</li>
                                         <li><i class="fa fa-calendar"></i>{{ article.create_date | show_jalali_date }}
                                         </li>
                                     </ul>

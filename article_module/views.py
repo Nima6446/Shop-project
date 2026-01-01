@@ -16,7 +16,7 @@ class ArticlesListView(ListView):
 
     def get_queryset(self):
         query = super(ArticlesListView, self).get_queryset()
-        query = query.filter(is_active=True)
+        query = query.filter(is_active=True).order_by('-id')
         category_name = self.kwargs.get('category')
         if category_name is not None:
             query= query.filter(selected_categories__url_title__iexact=category_name)
