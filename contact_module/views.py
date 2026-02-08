@@ -1,12 +1,9 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.views import View
 from django.views.generic import ListView
-
+from django.views.generic.edit import CreateView
 from site_module.models import SiteSetting
 from .forms import ContactUsModelForm
-from .models import ContactUs, UserProfile
-from django.views.generic.edit import FormView , CreateView
+from .models import UserProfile
+
 
 class ContactUsView(CreateView):
     template_name = 'contact_module/contact_us_page.html'

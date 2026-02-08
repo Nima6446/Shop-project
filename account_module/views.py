@@ -1,16 +1,14 @@
-import base64
 from django.contrib.auth import login,logout
-from django.contrib.auth.forms import AuthenticationForm
 from django.http import Http404, HttpRequest
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views import View
-
 from Shop_project import settings
 from account_module.froms import RegisterForm, LoginForm, ForgotPasswordForm, ResetPasswordForm
 from account_module.models import User
 from utils.email_service import send_email
+
 
 class RegisterView(View):
     def get(self, request):

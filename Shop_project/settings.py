@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'jalali_date',
     'widget_tweaks',
     'rest_framework',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
